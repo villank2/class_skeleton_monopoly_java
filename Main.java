@@ -10,8 +10,10 @@ class Game_Environment{
 	private int game_id;
 	private String game_name;
 	private String game_password;
-	//private Player[] player_list;
+	private Player[] player_list;
 	private Stack<String> game_log = new Stack<String>();
+	private Server server;
+	private Client[] clients;
 
 	public Game_Environment(){}
 	public static void start_game(){}
@@ -23,18 +25,24 @@ class Game_Environment{
 	public static void start_timer(Time timer){}
 	public static String show_time(Time time){return '00:00';}
 	public static Server host_server(){return Server myServer = new Server();}
-	public static Boolean join_ser(Server server){return True;}
+	public static boolean join_ser(Server server){return boolean x;}
 
 
 }
+class Time extends DateTime{
+	public Time(){}
+	public static void show_time(){};
+	public static void start_time(){};
+	public static String notify_end_timer(){return String s;};	
 
+}
 class Player{
 	private int player_id;
 	private String player_name;
-	//HashSet<LandTile> property_owned = new Set<LandTile>();
+	HashSet<LandTile> property_owned = new HashSet<LandTile>();
 	private int balance;
-	int curr_position;
-	int mortgage_owed;
+	private int curr_position;
+	private int mortgage_owed;
 
 	public Player(String name){
 		this.name = name;
@@ -69,7 +77,7 @@ class LandTile{
 	private String name;
 	private int value;
 	private int rent;
-	private Boolean mortgageStatus;
+	private boolean mortgageStatus;
 	private Player owner;
 
 	public LandTile(name,value,rent,){}
@@ -77,7 +85,7 @@ class LandTile{
 	public static int calculateRent(){return int x;}
 	public static String getName(){return this.name;}
 	public static int getValue(){return this.value;}
-	public static Boolean getMortgageStatus(){return this.mortgageStatus;}
+	public static boolean getMortgageStatus(){return this.mortgageStatus;}
 	public static Player getOwner(){return this.owner;}
 }
 
@@ -103,4 +111,14 @@ class PoolTile{
 
 	public PoolTile(){}
 	public static int draw_card(){return int x;}
+}
+
+class CornerTile{
+	int ID;
+	public CornerTile(){}
+}
+
+class Tile<T,U>{
+	T obj1;
+	U obj2;
 }
